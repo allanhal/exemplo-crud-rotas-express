@@ -6,12 +6,8 @@ function listar(produtoIdParam) {
 }
 
 function listarAutor(produtoIdParam,autorParam) {
-    // console.log(produtoIdParam);
-    let comentariosFiltrados = listar(produtoIdParam);
-    // console.log(comentariosFiltrados);
-    return listar(produtoIdParam).filter(({nomeDoAutor})=>{
-        // console.log(nomeDoAutor);
-        return autorParam === nomeDoAutor})
+    return listar(produtoIdParam)
+    .filter(({nomeDoAutor})=>nomeDoAutor.toLowerCase().indexOf(autorParam.toLowerCase()) >= 0)
 }
 module.exports={
     listar,
