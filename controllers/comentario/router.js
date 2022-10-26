@@ -6,4 +6,8 @@ const comentario = require("./comentario")
 route.get('/comentario/:produtoId', (req, res) => {
     res.send(comentario.listar(req.params.produtoId))
 })
+route.get('/comentario', (req, res) => {
+    console.log(req.query);
+    res.send(comentario.listarAutor(req.query.produtoId,req.query.autor))
+})
 module.exports = route;
